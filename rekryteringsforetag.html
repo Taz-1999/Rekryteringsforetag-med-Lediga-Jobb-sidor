@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!--
+    Denna sida visar knappar som öppnar rekryteringssiters lediga-jobb-sidor
+    i omgångar om tre stycken i nya flikar. Öppnar man sidan kan man då jobba 
+    med tre i taget och komma tillbaka till sidan.
+
+    Det är snyggare att ha listan i en JSON-fil. 
+
+ -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Öppna rekryteringsföretagens lediga jobb-sidor</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+
+    <script>
+      /*
+
+      */
+      // Listan på alla rekryteringssiter i ett array, med varje site som ett objekt.
+      let Rekryteringssiter = [
+        {
+          name: "AcademicWork",
+          url: "https://www.academicwork.se/lediga-jobb?i=0&b=437e4063-6732-45ff-bcc2-c54422a87f45&b=c97b36cd-0e56-4def-b957-6dd45dd8a7e7&b=eb7f79ab-d716-41f5-9f44-14a2ac5828b3&b=67d87614-2f75-45ba-a772-1650273daf27&l=ChIJywtkGTF2X0YRZnedZ9MnDag",
+        },
+        { name: "Ants", url: "https://jobb.ants.se/jobs" },
+        { name: "Bohmans", url: "https://www.bohmans.com/aktuellauppdrag/" },
+        {
+          name: "Bravura",
+          url: "https://jobb.bravura.se/lediga-jobb/?categories=558201&cities=541401",
+        },
+        { name: "Camai", url: "https://karriar.camai.se/jobs" },
+        { name: "Cambio", url: "https://cambio.teamtailor.com/jobs" },
+        {
+          name: "Dreamwork",
+          url: "https://www.dreamwork.se/for-arbetssokande/jobb/",
+        },
+        { name: "Framtiden", url: "https://www.framtiden.com/jobb/" },
+        { name: "Hero", url: "https://career.hero.se/jobs?location=Stockholm" },
+
+        { name: "Jobify", url: "https://jobbify.se/job/" },
+        {
+          name: "Monster",
+          url: "https://www.monster.se/profile/recommended-jobs",
+        },
+        {
+          name: "ManPower",
+          url: "https://www.manpower.se/sv/lediga-jobb?page=1&searchKeyword=IT&latitude=59.32932349999999&longitude=18.0685808&place=Stockholm,+Sverige&industries=IT+Data&ids={industries:[7a318d7d58344750a2537dcc9adf874f]}&sf=industries",
+        },
+        {
+          name: "OnePartnerGroup",
+          url: "https://onepartnergroup.recman.no/index.php",
+        },
+        { name: "Procruitment", url: "https://jobb.procruitment.se/jobs" },
+        { name: "Randstad", url: "https://www.randstad.se/jobb/" },
+        {
+          name: "Submit",
+          url: "https://submitab.teamtailor.com/jobs?department=White-Collar&location=Stockholm&query=",
+        },
+        { name: "The Place", url: "https://www.theplace.se/sok-jobb/" },
+        {
+          name: "The Pace",
+          url: "https://www.thepace.se/lediga-jobb/?region[]=Stockholm",
+        },
+
+        { name: "Wiser", url: "https://wiser.se/" },
+        { name: "WiseIT", url: "https://www.wiseit.se/lediga-tjanster" },
+      ];
+
+      // FUNKTIONER
+      // Skapa ett set för en knapp, detta är en array
+      function CreateSet(theList, start, end) {
+        return theList.slice(start, end);
+      }
+
+      // Skapa knapparnas namn som htlm
+      function CreateSetNames(theList, start, end) {
+        let element = `<i class="bi bi-globe2"></i><span class="btntext">Öppna `;
+        for (let index = start; index < end; index++) {
+          element = element + theList[index].name + `, `;
+        }
+        // Tag bort sista komma, mellanslag.
+        element = element.substring(0, element.length - 2);
+        // Avsluta span
+        element = element + `</span>`;
+        return element;
+      }
+
+      // Detta är vad som öppnar varje set i varsina flikar.
+      function OpenSet(TheSet) {
+        TheSet.forEach((urlToOpen) => {
+          window.open(urlToOpen.url, "_blank");
+        });
+      }
+
+      // VARIABLER
+      // Skapa ett set för respektive knapp, det går att ha tex fler eller färre.
+      let Set01 = CreateSet(Rekryteringssiter, 0, 3);
+      let Set02 = CreateSet(Rekryteringssiter, 3, 6);
+      let Set03 = CreateSet(Rekryteringssiter, 6, 9);
+      // console.log(Set03);
+      let Set04 = CreateSet(Rekryteringssiter, 9, 12);
+      let Set05 = CreateSet(Rekryteringssiter, 12, 15);
+      let Set06 = CreateSet(Rekryteringssiter, 15, 19);
+      // Finns bara en i sista setet, har med den också i sista knappen
+      //   let Set07 = CreateSet(Rekryteringssiter, 18, 19);
+
+      // Skapa knappens namn för varje set.
+      let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
+      let Set02Names = CreateSetNames(Rekryteringssiter, 3, 6);
+      let Set03Names = CreateSetNames(Rekryteringssiter, 6, 9);
+      // console.log("Set03Names " + Set03Names);
+      let Set04Names = CreateSetNames(Rekryteringssiter, 9, 12);
+      let Set05Names = CreateSetNames(Rekryteringssiter, 12, 15);
+      let Set06Names = CreateSetNames(Rekryteringssiter, 15, 19);
+      // Finns bara en i sista setet, har med den också i sista knappen
+      //   let Set07Names = CreateSetNames(Rekryteringssiter, 18, 19);
+
+      // SKRIV TILL DOKUMENTET KNAPPARNAS NAMN
+      // Denna funktion är med i onload body
+      // Så när sidan laddas, sätt namnen på knapparna ()
+      // .value fungerar på <input type="button">,
+      // .innerText fungerar på <button>.
+      // .innerHTML är för att ikoner, behöver addera html för ikonen skall fungera.
+      // <i class="bi bi-globe2"></i>
+
+      function SetButtonNames() {
+        document.getElementById("Button01").innerHTML = Set01Names;
+        document.getElementById("Button02").innerHTML = Set02Names;
+        document.getElementById("Button03").innerHTML = Set03Names;
+        document.getElementById("Button04").innerHTML = Set04Names;
+        document.getElementById("Button05").innerHTML = Set05Names;
+        document.getElementById("Button06").innerHTML = Set06Names;
+        // document.getElementById("Button07").innerHTML = Set07Names;
+      }
+    </script>
+
+    <style>
+      .btn {
+        background-color: DodgerBlue; /* Blue background */
+        border: none; /* Remove borders */
+        color: white; /* White text */
+        padding: 8px 8px; /* Some padding */
+        font-size: 16px; /* Set a font size */
+        cursor: pointer; /* Mouse pointer on hover */
+        width: 500px;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+
+      /* Mörkare text på hela knappen vid rollover.
+      .btntext är en <span> som behövs för att styla texten
+      */
+      .btn:hover,
+      .btntext:hover {
+        background-color: rgb(36, 71, 176);
+      }
+      /* Avstånd mellan ikon och knappens text.*/
+      .bi {
+        padding-right: 10px;
+      }
+    </style>
+  </head>
+  <body onload="SetButtonNames()" class="m-3">
+    <h1>Rekryteringssiternas sidor med lediga jobb</h1>
+    <p>Varje knapp öppnar siterna i nya flikar.</p>
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button01"
+        onclick="OpenSet(Set01)"
+        value=""
+      ></button>
+    </p>
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button02"
+        onclick="OpenSet(Set02)"
+        value=""
+      ></button>
+    </p>
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button03"
+        onclick="OpenSet(Set03)"
+        value=""
+        name=""
+      ></button>
+    </p>
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button04"
+        onclick="OpenSet(Set04)"
+        value=""
+        name=""
+      ></button>
+    </p>
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button05"
+        onclick="OpenSet(Set05)"
+        value=""
+        name=""
+      ></button>
+    </p>
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button06"
+        onclick="OpenSet(Set06)"
+        value=""
+        name=""
+      ></button>
+    </p>
+    <!-- Finns bara en i sista setet, har med den också i sista knappen -->
+
+    <!-- <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button07"
+        onclick="OpenSet(Set07)"
+        value=""
+        name=""
+      ></button>
+    </p> -->
+
+    <h3>Om bara en flik öppnas</h3>
+    <p>
+      Din webbläsare blockerar normalt popup-fönster och visar detta med en
+      liten symbol i eller omkring adressrutan. Finn den, och tillåt. Skärmdump från Brave.
+    </p>
+    <p>
+      <img src="Allow_popup-setting.png" alt="" />
+    </p>
+    <p>Senast uppdaterad: 2023-09-02</p>
+  </body>
+
+  <!-- INFO BOOTSTRAP ICONS
+  https://icons.getbootstrap.com/#install -->
+</html>
