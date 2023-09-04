@@ -11,7 +11,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Öppna rekryteringsföretagens lediga jobb-sidor</title>
+    <title>Rekryteringsföretagens lediga-jobb-sidor</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -23,16 +23,21 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    <!-- <link
+    <!-- Jag ändrade mig om att använda Font Awesome, till förmån för bootstrap icons istället
+      <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     /> -->
-
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
     />
 
+    <!-- 
+=======================================================
+MINA SCRIPTS
+=======================================================
+-->
     <script>
       /*
 
@@ -43,35 +48,50 @@
           name: "AcademicWork",
           url: "https://www.academicwork.se/lediga-jobb?i=0&b=437e4063-6732-45ff-bcc2-c54422a87f45&b=c97b36cd-0e56-4def-b957-6dd45dd8a7e7&b=eb7f79ab-d716-41f5-9f44-14a2ac5828b3&b=67d87614-2f75-45ba-a772-1650273daf27&l=ChIJywtkGTF2X0YRZnedZ9MnDag",
         },
-        { name: "Ants", url: "https://jobb.ants.se/jobs" },
+        { name: "Ants", url: "https://jobb.ants.se/jobs?location=Stockholm" },
         { name: "Bohmans", url: "https://www.bohmans.com/aktuellauppdrag/" },
         {
           name: "Bravura",
-          url: "https://jobb.bravura.se/lediga-jobb/?categories=558201&cities=541401",
+          url: "https://jobb.bravura.se/lediga-jobb/?categories=558201,558301,558801&cities=541401",
         },
-        { name: "Camai", url: "https://karriar.camai.se/jobs" },
-        { name: "Cambio", url: "https://cambio.teamtailor.com/jobs" },
+        {
+          name: "Camai",
+          url: "https://karriar.camai.se/jobs?location=Stockholm&query=",
+        },
+        {
+          name: "Cambio",
+          url: "https://cambio.teamtailor.com/jobs?location=Stockholm&query=",
+        },
         {
           name: "Dreamwork",
           url: "https://www.dreamwork.se/for-arbetssokande/jobb/",
         },
         { name: "Framtiden", url: "https://www.framtiden.com/jobb/" },
         { name: "Hero", url: "https://career.hero.se/jobs?location=Stockholm" },
-
-        { name: "Jobify", url: "https://jobbify.se/job/" },
+        {
+          name: "Indeed",
+          url: "https://se.indeed.com/jobs?q=&l=Stockholm&from=searchOnHP&vjk=7d64bf2318dad03f",
+        },
+        {
+          name: "Jobify",
+          url: "https://jobbify.se/student-dashboard/?pg=all-jobs&job_location=145&job_profession=26,175,194,191",
+        },
         {
           name: "Monster",
           url: "https://www.monster.se/profile/recommended-jobs",
         },
         {
           name: "ManPower",
-          url: "https://www.manpower.se/sv/lediga-jobb?page=1&searchKeyword=IT&latitude=59.32932349999999&longitude=18.0685808&place=Stockholm,+Sverige&industries=IT+Data&ids={industries:[7a318d7d58344750a2537dcc9adf874f]}&sf=industries",
+          url: "https://www.manpower.se/sv/lediga-jobb?page=1&latitude=59.32932349999999&longitude=18.0685808&place=Stockholm,+Sverige",
         },
         {
           name: "OnePartnerGroup",
-          url: "https://onepartnergroup.recman.no/index.php",
+          url: "https://onepartnergroup.recman.no/index.php?query=&region%5B31%5D=31",
         },
-        { name: "Procruitment", url: "https://jobb.procruitment.se/jobs" },
+        {
+          name: "Procruitment",
+          url: "https://jobb.procruitment.se/jobs?location=Stockholm&query=",
+        },
         { name: "Randstad", url: "https://www.randstad.se/jobb/" },
         {
           name: "Submit",
@@ -82,9 +102,11 @@
           name: "The Pace",
           url: "https://www.thepace.se/lediga-jobb/?region[]=Stockholm",
         },
-
-        { name: "Wiser", url: "https://wiser.se/" },
-        { name: "WiseIT", url: "https://www.wiseit.se/lediga-tjanster" },
+        { name: "Wiser (konsultportal)", url: "https://wiser.se/" },
+        {
+          name: "WiseIT",
+          url: "https://www.wiseit.se/lediga-tjanster/?sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_location=796&sleek_filter_tax_sleekteamtailor_job_type=&sleek_filter_search=",
+        },
       ];
 
       // FUNKTIONER
@@ -101,8 +123,30 @@
         }
         // Tag bort sista komma, mellanslag.
         element = element.substring(0, element.length - 2);
+
         // Avsluta span
         element = element + `</span>`;
+        return element;
+      }
+
+      // Skapa lista med alla länkar
+      function CreateListOfLinks(theList) {
+        let element = `<p class="linklist">`;
+        for (let listThingy in theList) {
+          element =
+            element +
+            `<a href="${theList[listThingy].url}" target="_blank">${theList[listThingy].name}</a>, `;
+        }
+
+        // Tag bort sista komma, mellanslag.
+        element = element.substring(0, element.length - 2);
+
+        // Avsluta p
+        element = element + `.</p>`;
+
+        // Logga ut
+        // console.log(element);
+
         return element;
       }
 
@@ -121,9 +165,11 @@
       // console.log(Set03);
       let Set04 = CreateSet(Rekryteringssiter, 9, 12);
       let Set05 = CreateSet(Rekryteringssiter, 12, 15);
-      let Set06 = CreateSet(Rekryteringssiter, 15, 19);
-      // Finns bara en i sista setet, har med den också i sista knappen
-      //   let Set07 = CreateSet(Rekryteringssiter, 18, 19);
+      let Set06 = CreateSet(Rekryteringssiter, 15, 18);
+      let Set07 = CreateSet(Rekryteringssiter, 18, 21);
+      // Passar på skapa dessa med, även om det nu bara finns 21.
+      // let Set08 = CreateSet(Rekryteringssiter, 21, 24);
+      // let Set09 = CreateSet(Rekryteringssiter, 24, 27);
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -132,16 +178,21 @@
       // console.log("Set03Names " + Set03Names);
       let Set04Names = CreateSetNames(Rekryteringssiter, 9, 12);
       let Set05Names = CreateSetNames(Rekryteringssiter, 12, 15);
-      let Set06Names = CreateSetNames(Rekryteringssiter, 15, 19);
-      // Finns bara en i sista setet, har med den också i sista knappen
-      //   let Set07Names = CreateSetNames(Rekryteringssiter, 18, 19);
+      let Set06Names = CreateSetNames(Rekryteringssiter, 15, 18);
+      let Set07Names = CreateSetNames(Rekryteringssiter, 18, 21);
+      // Passar på skapa dessa med, även om det bara finns 21 just nu.
+      // let Set08Names = CreateSetNames(Rekryteringssiter, 21, 24);
+      // let Set09Names = CreateSetNames(Rekryteringssiter, 24, 27);
+
+      // Skapa komma-separerad lista med alla länkar.
+      let AllLinksList = CreateListOfLinks(Rekryteringssiter);
 
       // SKRIV TILL DOKUMENTET KNAPPARNAS NAMN
       // Denna funktion är med i onload body
       // Så när sidan laddas, sätt namnen på knapparna ()
-      // .value fungerar på <input type="button">,
-      // .innerText fungerar på <button>.
-      // .innerHTML är för att ikoner, behöver addera html för ikonen skall fungera.
+      // .value fungerar på <input type="button"> (borttaget)
+      // .innerText fungerar på <button> (borttaget)
+      // .innerHTML är för att ikoner behöver addera html för ikonen.
       // <i class="bi bi-globe2"></i>
 
       function SetButtonNames() {
@@ -151,10 +202,22 @@
         document.getElementById("Button04").innerHTML = Set04Names;
         document.getElementById("Button05").innerHTML = Set05Names;
         document.getElementById("Button06").innerHTML = Set06Names;
-        // document.getElementById("Button07").innerHTML = Set07Names;
+        document.getElementById("Button07").innerHTML = Set07Names;
+        // Passar på skapa dessa med, även om det bara finns 21 just nu.
+        // document.getElementById("Button08").innerHTML = Set08Names;
+        // document.getElementById("Button09").innerHTML = Set09Names;
+        // Skriv in antalet rekr företag i en text på sidan.
+        document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
+        // Skriv in hela länklistan i en text på sidan
+        document.getElementById("listan").innerHTML = AllLinksList;
       }
     </script>
 
+    <!-- 
+=======================================================
+STYLING
+=======================================================
+-->
     <style>
       .btn {
         background-color: DodgerBlue; /* Blue background */
@@ -169,7 +232,7 @@
       }
 
       /* Mörkare text på hela knappen vid rollover.
-      .btntext är en <span> som behövs för att styla texten
+      .btntext är en <span> som behövs för att styla texten på knappen
       */
       .btn:hover,
       .btntext:hover {
@@ -179,11 +242,112 @@
       .bi {
         padding-right: 10px;
       }
+      /* Lite styling för antalet rekryteringssiter.*/
+      #antalet {
+        font-weight: 600;
+        font-size: 1.2em;
+      }
     </style>
+
+    <!-- 
+=======================================================
+META TAGS FÖR DELNING TILL TWITTER
+=======================================================
+-->
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- <meta name="twitter:site" content="@Taz_1999" /> -->
+    <meta name="twitter:creator" content="@Taz_1999" />
+    <meta
+      name="twitter:title"
+      content="Rekryteringsföretagens lediga-jobb-sidor"
+    />
+    <meta
+      name="twitter:description"
+      content="Knappar på sidan öppnar tre i taget i egna flikar, gör det lätt gå igenom."
+    />
+    <meta
+      name="twitter:image"
+      content="https://alltommig.nu/jobbansokningar/rekryteringsforetag_images/drawing-inkscape.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Illustration av webbläsare med flera flikar och knappar på främsta sidan"
+    />
+
+    <!-- 
+=======================================================
+META TAGS FÖR DELNING TILL FACEBOOK PLUS NÅGRA TILL
+=======================================================
+-->
+
+    <meta property="fb:app_id" content="103319467190" />
+    <meta
+      property="og:url"
+      content="https://alltommig.nu/jobbansokningar/rekryteringsforetag.html"
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:title"
+      content="Rekryteringsföretagens lediga-jobb-sidor"
+    />
+    <meta
+      property="og:description"
+      content="Knappar på sidan öppnar tre i taget i egna flikar, gör det lätt gå igenom."
+    />
+    <meta
+      property="og:image"
+      content="https://alltommig.nu/jobbansokningar/rekryteringsforetag_images/drawing-inkscape.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="Illustration av webbläsare med flera flikar och knappar på främsta sidan"
+    />
+    <meta property="og:locale" content="sv_SE" />
   </head>
+
+  <!-- 
+=======================================================
+BODY START
+=======================================================
+-->
+
   <body onload="SetButtonNames()" class="m-3">
-    <h1>Rekryteringssiternas sidor med lediga jobb</h1>
-    <p>Varje knapp öppnar siterna i nya flikar.</p>
+    <img
+      src="./rekryteringsforetag_images/drawing-inkscape.png"
+      alt=""
+      class="mb-5"
+    />
+
+    <h1 class="text-primary">Rekryteringsföretagens lediga-jobb-sidor</h1>
+    <!-- SOCIAL SHARING BUTTONS -->
+    <p class="fs-5">
+      Dela sidan:
+      <a
+        href="https://twitter.com/intent/tweet?url=https://alltommig.nu/jobbansokningar/rekryteringsforetag.html&via=Taz_1999"
+        target="_blank"
+        ><i class="bi bi-twitter"></i
+      ></a>
+      <a
+        href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Falltommig.nu%2Fjobbansokningar%2Frekryteringsforetag.html&title=Rekryteringsföretagens%20ledigajobb-sidor&summary=Underlätta%20ditt%20jobbsökande%20med%20denna%20sida"
+        target="_blank"
+        ><i class="bi bi-linkedin"></i
+      ></a>
+      <a
+        href="https://www.facebook.com/dialog/share?app_id=103319467190&display=popup&href=https%3A%2F%2Falltommig.nu%2Fjobbansokningar%2Frekryteringsforetag.html&redirect_uri=https://alltommig.nu/jobbansokningar/rekryteringsforetag.html"
+        target="_blank"
+        ><i class="bi bi-facebook"></i
+      ></a>
+    </p>
+
+    <p>
+      Varje knapp öppnar siterna i nya flikar, om öppna popup är tillåtet i din
+      webbläsare. Se nedan.
+    </p>
+    <p>
+      De flesta länkar skall vara förinställda på Stockholm och de områden jag
+      söker jobb inom (Administration, IT-support, Frontendutveckling mm).
+    </p>
     <p>
       <button
         class="btn btn-primary btn-lg"
@@ -242,9 +406,8 @@
         name=""
       ></button>
     </p>
-    <!-- Finns bara en i sista setet, har med den också i sista knappen -->
 
-    <!-- <p>
+    <p>
       <button
         class="btn btn-primary btn-lg"
         type="button"
@@ -253,19 +416,209 @@
         value=""
         name=""
       ></button>
+    </p>
+
+    <!-- Passar på att skapa dessa med, även om det bara finns 21 just nu. <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button08"
+        onclick="OpenSet(Set08)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button09"
+        onclick="OpenSet(Set09)"
+        value=""
+        name=""
+      ></button>
     </p> -->
 
-    <h3>Om bara en flik öppnas</h3>
+    <h2>Om bara en flik öppnas, tillåt popup</h2>
     <p>
       Din webbläsare blockerar normalt popup-fönster och visar detta med en
-      liten symbol i eller omkring adressrutan. Finn den, och tillåt. Skärmdump från Brave.
+      liten symbol i eller omkring adressrutan. Finn den, och tillåt. <br />
+      Skärmdump från Brave respektive Firefox.
     </p>
     <p>
-      <img src="Allow_popup-setting.png" alt="" />
+      <img
+        src="./rekryteringsforetag_images/Allow-popup-setting-brave.png"
+        alt=""
+      />&nbsp;
+      <img
+        src="./rekryteringsforetag_images/Allow-popup-setting-firefox.png"
+        alt=""
+      />
     </p>
-    <p>Senast uppdaterad: 2023-09-02</p>
+    <img
+      src="./rekryteringsforetag_images/resume-header-7065112_640.png"
+      class="img-fluid mb-2"
+      alt=""
+    />
+    <h2>Denna sida är tänkt att underlätta ditt jobbsökande</h2>
+    <p>
+      I Sverige finns många rekryteringsföretag, stora som små, där de försöker
+      sammankoppla arbetsgivare med de jobbsökanden som du.
+    </p>
+    <p>
+      Iden är att du skall kunna öppna tre lediga-jobb-sidor i taget, scanna av
+      jobbannonserna, stänga ner lediga-jobb-sidan och sedan ta nästa omgång med
+      tre sidor med platsannonser hos rekryteringsföretagen.
+    </p>
+    <p>
+      I dessa knappar finns i <span id="antalet">XX</span> sådana
+      jobbannons-sidor hos rekryteringsföretagen.
+    </p>
+    <p>
+      Du kan förstås även ersätta denna sida med några bokmärken sparade i
+      mappar i din webbläsare.
+    </p>
+    <h2>
+      Ha en aktuell profil på rekryteringsföretagens sidor när du söker jobb och
+      på LinkedIn och AF
+    </h2>
+    <p>
+      Det är förmodligen en god ide att ha en registrerad profil med aktuell
+      information i form av kompetenser, utbildningar, arbetslivserfarenhet på
+      de flesta eller alla dessa sidor. Som då skickas med varje ansökan hos
+      dem. För ett par av dessa rekryteringsföretag behöver du det för att kunna
+      se listan på <strong>lediga jobb-annonser</strong>. En del, men inte allar
+      har fullt utvecklade profil-sidor för jobbsökandet som rekryterarna
+      använder för att hitta kandidater.
+    </p>
+    <p>
+      Förutom att ha en profil hos dem bör du se till att din
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>-profil är
+      uppdaterad, då många rekryteringföretag och arbetsgivare låter dig logga
+      in med och hämtar då från Linkedin information om dig, vilket gör
+      ansökningsprocessen lite lättare.
+    </p>
+    <p>
+      En del av företagen har inte profil-sidor, andra har en basal sådan där
+      man "connectar", dvs lämnar sin epost och svarar på 3-6 frågor och kan
+      ladda upp en CV. Då kan man få mail med platsannonser.
+    </p>
+    <!-- <h2>
+      Att ange kompetenser och utbildningar i profiler fungerar inte alltid
+    </h2>
+    <p>
+      En sak jag noterat är att många kompetenser saknas. De olika företagen
+      verkar fokusera på vissa branscher och dess kompetenser vilket man kan
+      förstå. Exempel på det är när ett rekryteringsföretag inte har en enda
+      kompetens relaterad till utbildning och lärande som går att ange i sina
+      profiler. Eller när vanligt förekommande datorprogram inte finns.
+    </p>
+    <p>
+      Att de har låtit listan på kompetenser förfalla och bli gammal tycker jag
+      är lika illa. De har med Windows 7, 8, men inte de nyare 10 och 11. Man
+      kan ange gamla program som inte finns längre men nyare för samma/liknande
+      finns inte med. Ett till exempel är när de största ramverken
+      för Javascript saknas, som jag som webbutvecklare vill kunna ange: React, Vue,
+      Angular, som står med i massa jobbannonser.
+    </p>
+    <p>
+      En annan lustig sak är att på en del kan man ange utbildningar man gått
+      och bland typer av sådana har de med förskola och grundskola? Varför?
+    </p>
+    <p>
+      Samtidigt har de inte med som valbart alternativ att man läst enstaka
+      kurser på universitet eller gått utbildningar inom privata näringslivet,
+      eller ens Komvux. Bara olika typer av examen (kandidat- och doktors-examen
+      tex).
+    </p>
+    <p>
+      Webbsiter som
+      <a href="https://www.utbildning.se/" target="_blank"
+        >https://www.utbildning.se/</a
+      >
+      innehåller 1000-tals kurser för näringslivet som inte ger examen, som då
+      inte går att ange. De driver även
+      <a href="https://www.komvuxutbildningar.se/"
+        >https://www.komvuxutbildningar.se/</a
+      >
+      och <a href="https://www.studentum.se/">https://www.studentum.se/</a> som
+      inte heller går att ange.
+      <a href="https://www.studera.nu/" target="_blank"
+        >https://www.studera.nu/</a
+      >
+      har också tusentals utbildningar och kurser på universitet och högskola,
+      de allra flesta är inte är examensgivande och går därmed inte att ange
+      under utbildning. Dumt!
+    </p> -->
+    <h2>Sidor med jobbannonser</h2>
+    <p>Detta är länkarna i knapparna:</p>
+    <p id="listan">XXX</p>
+    <p>
+      Vi kan förstås lägga till
+      <a href="https://www.linkedin.com/jobs/" target="_blank">LinkedIn</a> och
+      <a
+        href="https://arbetsformedlingen.se/platsbanken/annonser?l=2:CifL_Rzy_Mku"
+        target="_blank"
+        >Arbetsförmedlingens Platsbank</a
+      >.
+    </p>
+    <h2>Github-projekt finns om du vill anpassa sidan</h2>
+    <p>
+      Denna sida finns även som ett projekt på github. Det betyder att du kan
+      ladda hem hela projektet med alla sidor och anpassa det som du vill och
+      publicera det på din egen webbserver/webhotell. Eller bara spara som en
+      fil i datorn du kan dubbelklicka på så öppnas den i webbläsaren. Vill du
+      exempelvis byta ort och förinställda kategorier av jobb (som lagrats i
+      URL'erna), så är det så du gör (eller ber mig).
+    </p>
+    <p>
+      Github:
+      <a
+        href="https://github.com/Taz-1999/Rekryteringsforetag-med-Lediga-Jobb-sidor"
+        >https://github.com/Taz-1999/Rekryteringsforetag-med-Lediga-Jobb-sidor</a
+      >.
+    </p>
+
+    <h2>Denna sida är gjord av</h2>
+    <p>Av: Ola Andersson, rekryteringsforetagsidan@mammals.se</p>
+    <p>
+      Min egen CV:
+      <a href="https://alltommig.nu/cv" target="_blank"
+        >https://alltommig.nu/cv</a
+      >
+    </p>
+    <p>
+      Jag söker förresten jobb som Frontend-utvecklare, IT-support,
+      Administratör, Utbildare och Marknadsförare.
+      <a href="https://alltommig.nu/pb" target="_blank"
+        >Se personliga brev med CV's här</a
+      >.
+    </p>
+    <hr />
+    <p>
+      <small></small>
+      Denna sidas adress:
+      <a href="https://alltommig.nu/rekr" target="_blank"
+        >https://alltommig.nu/rekr</a
+      >
+    </p>
+    <p>Senast uppdaterad: 2023-09-04</p>
   </body>
 
   <!-- INFO BOOTSTRAP ICONS
   https://icons.getbootstrap.com/#install -->
+  <!-- INFO TEMPLATE LITERALS 
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals -->
+  <!-- INFO SHARING SOCIAL MEDIA BUTTONS AND CARDS 
+  https://swimburger.net/blog/web/social-sharing-buttons-with-zero-javascript-to-twitter-reddit-linkedin-and-facebook 
+  Plus FB: 
+  https://developers.facebook.com/docs/sharing/web (de olika alternativen)
+  https://developers.facebook.com/docs/sharing/reference/share-dialog (mer flexibel deln)
+  https://developers.facebook.com/docs/sharing/reference/feed-dialog/ (enlare deln)
+
+-->
+  <!-- URL'n till denna sida URL-encoded: 
+  https%3A%2F%2Falltommig.nu%2Fjobbansokningar%2Frekryteringsforetag.html
+ -->
 </html>
