@@ -48,6 +48,14 @@ MINA SCRIPTS
           name: "AcademicWork",
           url: "https://www.academicwork.se/lediga-jobb?i=0&b=437e4063-6732-45ff-bcc2-c54422a87f45&b=c97b36cd-0e56-4def-b957-6dd45dd8a7e7&b=eb7f79ab-d716-41f5-9f44-14a2ac5828b3&b=67d87614-2f75-45ba-a772-1650273daf27&l=ChIJywtkGTF2X0YRZnedZ9MnDag",
         },
+        {
+          name: "Addilon",
+          url: "https://www.addilon.se/jobb-karriar/lediga-tjanster/",
+        },
+        {
+          name: "Adecco",
+          url: "https://www.adecco.se/lediga-jobb/inom-stockholms-l%C3%A4n/",
+        },
         { name: "Ants", url: "https://jobb.ants.se/jobs?location=Stockholm" },
         { name: "Bohmans", url: "https://www.bohmans.com/aktuellauppdrag/" },
         {
@@ -66,6 +74,11 @@ MINA SCRIPTS
           name: "Dreamwork",
           url: "https://www.dreamwork.se/for-arbetssokande/jobb/",
         },
+        {
+          name: "Facebook-Jobb STHLM",
+          url: "https://www.facebook.com/groups/jobbistockholm",
+        },
+        { name: "Fasticon", url: "https://fasticon.se/lediga-jobb/" },
         { name: "Framtiden", url: "https://www.framtiden.com/jobb/" },
         { name: "Hero", url: "https://career.hero.se/jobs?location=Stockholm" },
         {
@@ -73,26 +86,49 @@ MINA SCRIPTS
           url: "https://se.indeed.com/jobs?q=&l=Stockholm&from=searchOnHP&vjk=7d64bf2318dad03f",
         },
         {
-          name: "Jobify",
-          url: "https://jobbify.se/student-dashboard/?pg=all-jobs&job_location=145&job_profession=26,175,194,191",
+          name: "Jappa (gig)",
+          url: "https://www.jappa.jobs/jobb",
         },
         {
-          name: "Monster",
-          url: "https://www.monster.se/profile/recommended-jobs",
+          name: "Jobbusters",
+          url: "https://www.jobbusters.se/lediga-jobb/",
+        },
+        {
+          name: "Jobify",
+          url: "https://jobbify.se/student-dashboard/?pg=all-jobs&job_location=145&job_profession=26,175,194,191",
         },
         {
           name: "ManPower",
           url: "https://www.manpower.se/sv/lediga-jobb?page=1&latitude=59.32932349999999&longitude=18.0685808&place=Stockholm,+Sverige",
         },
         {
+          name: "Monster",
+          url: "https://www.monster.se/profile/recommended-jobs",
+        },
+        {
           name: "OnePartnerGroup",
           url: "https://onepartnergroup.recman.no/index.php?query=&region%5B31%5D=31",
+        },
+        {
+          name: "Perido",
+          url: "https://perido.se/lediga-jobb/#s=1",
         },
         {
           name: "Procruitment",
           url: "https://jobb.procruitment.se/jobs?location=Stockholm&query=",
         },
-        { name: "Randstad", url: "https://www.randstad.se/jobb/" },
+        {
+          name: "Randstad",
+          url: "https://www.randstad.se/jobb/postcode-129-34/km-25/",
+        },
+        {
+          name: "Rekryteringshuset",
+          url: "https://rekryteringshuset.se/lediga-tjanster/",
+        },
+        {
+          name: "ROI Rekrytering",
+          url: "https://roirekrytering.se/lediga-jobb/",
+        },
         {
           name: "Submit",
           url: "https://submitab.teamtailor.com/jobs?department=White-Collar&location=Stockholm&query=",
@@ -102,6 +138,9 @@ MINA SCRIPTS
           name: "The Pace",
           url: "https://www.thepace.se/lediga-jobb/?region[]=Stockholm",
         },
+        { name: "Professionals Nord", url: "https://pn.se/jobb/" },
+        { name: "Uniflex bemanning", url: "https://www.uniflex.se/sok-jobb/" },
+
         { name: "Wiser (konsultportal)", url: "https://wiser.se/" },
         {
           name: "WiseIT",
@@ -167,9 +206,11 @@ MINA SCRIPTS
       let Set05 = CreateSet(Rekryteringssiter, 12, 15);
       let Set06 = CreateSet(Rekryteringssiter, 15, 18);
       let Set07 = CreateSet(Rekryteringssiter, 18, 21);
-      // Passar på skapa dessa med, även om det nu bara finns 21.
-      // let Set08 = CreateSet(Rekryteringssiter, 21, 24);
-      // let Set09 = CreateSet(Rekryteringssiter, 24, 27);
+      let Set08 = CreateSet(Rekryteringssiter, 21, 24);
+      let Set09 = CreateSet(Rekryteringssiter, 24, 27);
+      let Set10 = CreateSet(Rekryteringssiter, 27, 30);
+      // Just nu finns det 32 länkar i listan. Vid 33 behövs ett nytt set och ny knapp.
+      let Set11 = CreateSet(Rekryteringssiter, 30, 32); // <-- Notera siffran.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -180,9 +221,11 @@ MINA SCRIPTS
       let Set05Names = CreateSetNames(Rekryteringssiter, 12, 15);
       let Set06Names = CreateSetNames(Rekryteringssiter, 15, 18);
       let Set07Names = CreateSetNames(Rekryteringssiter, 18, 21);
-      // Passar på skapa dessa med, även om det bara finns 21 just nu.
-      // let Set08Names = CreateSetNames(Rekryteringssiter, 21, 24);
-      // let Set09Names = CreateSetNames(Rekryteringssiter, 24, 27);
+      let Set08Names = CreateSetNames(Rekryteringssiter, 21, 24);
+      let Set09Names = CreateSetNames(Rekryteringssiter, 24, 27);
+      let Set10Names = CreateSetNames(Rekryteringssiter, 27, 30);
+      // Just nu finns det 32 länkar i listan. Vid 33 behövs ett nytt set och ny knapp.
+      let Set11Names = CreateSetNames(Rekryteringssiter, 30, 32); // <-- Notera siffran.
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -203,9 +246,11 @@ MINA SCRIPTS
         document.getElementById("Button05").innerHTML = Set05Names;
         document.getElementById("Button06").innerHTML = Set06Names;
         document.getElementById("Button07").innerHTML = Set07Names;
-        // Passar på skapa dessa med, även om det bara finns 21 just nu.
-        // document.getElementById("Button08").innerHTML = Set08Names;
-        // document.getElementById("Button09").innerHTML = Set09Names;
+        document.getElementById("Button08").innerHTML = Set08Names;
+        document.getElementById("Button09").innerHTML = Set09Names;
+        document.getElementById("Button10").innerHTML = Set10Names;
+        // Just nu finns det 32 länkar i listan. Vid 33 behövs ett nytt set och ny knapp.
+        document.getElementById("Button11").innerHTML = Set11Names;
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
         // Skriv in hela länklistan i en text på sidan
@@ -418,7 +463,7 @@ BODY START
       ></button>
     </p>
 
-    <!-- Passar på att skapa dessa med, även om det bara finns 21 just nu. <p>
+    <p>
       <button
         class="btn btn-primary btn-lg"
         type="button"
@@ -438,7 +483,29 @@ BODY START
         value=""
         name=""
       ></button>
-    </p> -->
+    </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button10"
+        onclick="OpenSet(Set10)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button11"
+        onclick="OpenSet(Set11)"
+        value=""
+        name=""
+      ></button>
+    </p>
 
     <h2>Om bara en flik öppnas, tillåt popup</h2>
     <p>
