@@ -78,7 +78,7 @@ MINA SCRIPTS
           name: "Dreamwork",
           url: "https://www.dreamwork.se/for-arbetssokande/jobb/",
         },
-        
+
         {
           name: "Facebook-Jobb STHLM",
           url: "https://www.facebook.com/groups/jobbistockholm",
@@ -154,7 +154,10 @@ MINA SCRIPTS
           name: "The Pace",
           url: "https://www.thepace.se/lediga-jobb/?region[]=Stockholm",
         },
-        { name: "Uniflex bemanning", url: "https://www.uniflex.se/jobb/?q=stockholm&orderby=post_date" },
+        {
+          name: "Uniflex bemanning",
+          url: "https://www.uniflex.se/jobb/?q=stockholm&orderby=post_date",
+        },
 
         { name: "Wiser (konsultportal)", url: "https://wiser.se/" },
         {
@@ -224,8 +227,10 @@ MINA SCRIPTS
       let Set08 = CreateSet(Rekryteringssiter, 21, 24);
       let Set09 = CreateSet(Rekryteringssiter, 24, 27);
       let Set10 = CreateSet(Rekryteringssiter, 27, 30);
-      // Just nu finns det 32 länkar i listan. Vid 33 behövs ett nytt set och ny knapp.
-      let Set11 = CreateSet(Rekryteringssiter, 30, 32); // <-- Notera siffran.
+      let Set11 = CreateSet(Rekryteringssiter, 30, 33);
+      let Set12 = CreateSet(Rekryteringssiter, 33, 36);
+      // Just nu finns det 37 länkar i listan. Vid 40 behövs ett nytt set och ny knapp.
+      let Set13 = CreateSet(Rekryteringssiter, 36, 37); // <-- Notera siffran.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -239,8 +244,10 @@ MINA SCRIPTS
       let Set08Names = CreateSetNames(Rekryteringssiter, 21, 24);
       let Set09Names = CreateSetNames(Rekryteringssiter, 24, 27);
       let Set10Names = CreateSetNames(Rekryteringssiter, 27, 30);
-      // Just nu finns det 32 länkar i listan. Vid 33 behövs ett nytt set och ny knapp.
-      let Set11Names = CreateSetNames(Rekryteringssiter, 30, 32); // <-- Notera siffran.
+      let Set11Names = CreateSetNames(Rekryteringssiter, 30, 33);
+      let Set12Names = CreateSetNames(Rekryteringssiter, 33, 36);
+      // Just nu finns det 37 länkar i listan. Vid 40 behövs ett nytt set och ny knapp.
+      let Set13Names = CreateSetNames(Rekryteringssiter, 36, 37); // <-- Notera siffran.
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -264,8 +271,10 @@ MINA SCRIPTS
         document.getElementById("Button08").innerHTML = Set08Names;
         document.getElementById("Button09").innerHTML = Set09Names;
         document.getElementById("Button10").innerHTML = Set10Names;
-        // Just nu finns det 32 länkar i listan. Vid 33 behövs ett nytt set och ny knapp.
         document.getElementById("Button11").innerHTML = Set11Names;
+        document.getElementById("Button12").innerHTML = Set12Names;
+        // Just nu finns det 37 länkar i listan. Vid 40 behövs ett nytt set och ny knapp.
+        document.getElementById("Button13").innerHTML = Set13Names;
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
         // Skriv in hela länklistan i en text på sidan
@@ -521,6 +530,39 @@ BODY START
         name=""
       ></button>
     </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button12"
+        onclick="OpenSet(Set12)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button13"
+        onclick="OpenSet(Set13)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
+    <!-- <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button11"
+        onclick="OpenSet(Set11)"
+        value=""
+        name=""
+      ></button>
+    </p> -->
 
     <h2>Om bara en flik öppnas, tillåt popup</h2>
     <p>
