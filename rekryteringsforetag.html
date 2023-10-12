@@ -79,6 +79,10 @@ MINA SCRIPTS
           url: "https://www.dreamwork.se/for-arbetssokande/jobb/",
         },
         {
+          name: "E-Commerce Recruit",
+          url: "https://www.ecommercerecruit.se/lediga-jobb/?utm_source=rule&utm_medium=email",
+        },
+        {
           name: "Facebook-Jobb STHLM",
           url: "https://www.facebook.com/groups/jobbistockholm",
         },
@@ -91,6 +95,10 @@ MINA SCRIPTS
           url: "https://se.indeed.com/jobs?q=&l=Stockholm&from=searchOnHP&vjk=7d64bf2318dad03f",
         },
         {
+          name: "Inhouse",
+          url: "https://www.inhouse.se/jobb/?filter=recman_location%3Dstockholms-lan",
+        },
+        {
           name: "Jappa (gig)",
           url: "https://www.jappa.jobs/jobb",
         },
@@ -101,6 +109,10 @@ MINA SCRIPTS
         {
           name: "Jobify",
           url: "https://jobbify.se/student-dashboard/?pg=all-jobs&job_location=145&job_profession=26,175,194,191",
+        },
+        {
+          name: "KFX HR Partner",
+          url: "https://www.kfx.se/soka-jobb/",
         },
         {
           name: "ManPower",
@@ -217,7 +229,6 @@ MINA SCRIPTS
       let Set01 = CreateSet(Rekryteringssiter, 0, 3);
       let Set02 = CreateSet(Rekryteringssiter, 3, 6);
       let Set03 = CreateSet(Rekryteringssiter, 6, 9);
-      // console.log(Set03);
       let Set04 = CreateSet(Rekryteringssiter, 9, 12);
       let Set05 = CreateSet(Rekryteringssiter, 12, 15);
       let Set06 = CreateSet(Rekryteringssiter, 15, 18);
@@ -227,14 +238,13 @@ MINA SCRIPTS
       let Set10 = CreateSet(Rekryteringssiter, 27, 30);
       let Set11 = CreateSet(Rekryteringssiter, 30, 33);
       let Set12 = CreateSet(Rekryteringssiter, 33, 36);
-      // Just nu finns det 37 länkar i listan. Vid 40 behövs ett nytt set och ny knapp.
-      let Set13 = CreateSet(Rekryteringssiter, 36, 37); // <-- Notera siffran.
+      let Set13 = CreateSet(Rekryteringssiter, 36, 39);
+      let Set14 = CreateSet(Rekryteringssiter, 39, 40); // <-- OBS!
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
       let Set02Names = CreateSetNames(Rekryteringssiter, 3, 6);
       let Set03Names = CreateSetNames(Rekryteringssiter, 6, 9);
-      // console.log("Set03Names " + Set03Names);
       let Set04Names = CreateSetNames(Rekryteringssiter, 9, 12);
       let Set05Names = CreateSetNames(Rekryteringssiter, 12, 15);
       let Set06Names = CreateSetNames(Rekryteringssiter, 15, 18);
@@ -244,11 +254,15 @@ MINA SCRIPTS
       let Set10Names = CreateSetNames(Rekryteringssiter, 27, 30);
       let Set11Names = CreateSetNames(Rekryteringssiter, 30, 33);
       let Set12Names = CreateSetNames(Rekryteringssiter, 33, 36);
-      // Just nu finns det 37 länkar i listan. Vid 40 behövs ett nytt set och ny knapp.
-      let Set13Names = CreateSetNames(Rekryteringssiter, 36, 37); // <-- Notera siffran.
+      let Set13Names = CreateSetNames(Rekryteringssiter, 36, 39);
+      let Set14Names = CreateSetNames(Rekryteringssiter, 39, 40); // <-- OBS!
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
+
+      // Kolla läget:
+      // console.log("Set03 " + Set03);
+      // console.log("Set03Names " + Set03Names);
 
       // SKRIV TILL DOKUMENTET KNAPPARNAS NAMN
       // Denna funktion är med i onload body
@@ -271,8 +285,9 @@ MINA SCRIPTS
         document.getElementById("Button10").innerHTML = Set10Names;
         document.getElementById("Button11").innerHTML = Set11Names;
         document.getElementById("Button12").innerHTML = Set12Names;
-        // Just nu finns det 37 länkar i listan. Vid 40 behövs ett nytt set och ny knapp.
         document.getElementById("Button13").innerHTML = Set13Names;
+        document.getElementById("Button14").innerHTML = Set14Names;
+
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
         // Skriv in hela länklistan i en text på sidan
@@ -380,10 +395,16 @@ BODY START
 -->
 
   <body onload="SetButtonNames()" class="m-3">
-    <img
+    <!-- <img
       src="./rekryteringsforetag_images/drawing-inkscape.png"
       alt=""
       class="mb-5"
+    /> -->
+
+    <img
+      src="./rekryteringsforetag_images/resume-header-7065112_640.png"
+      class="img-fluid mb-2"
+      alt=""
     />
 
     <h1 class="text-primary">Rekryteringsföretagens lediga-jobb-sidor</h1>
@@ -551,16 +572,16 @@ BODY START
       ></button>
     </p>
 
-    <!-- <p>
+    <p>
       <button
         class="btn btn-primary btn-lg"
         type="button"
-        id="Button11"
-        onclick="OpenSet(Set11)"
+        id="Button14"
+        onclick="OpenSet(Set14)"
         value=""
         name=""
       ></button>
-    </p> -->
+    </p>
 
     <h2>Om bara en flik öppnas, tillåt popup</h2>
     <p>
@@ -578,11 +599,7 @@ BODY START
         alt=""
       />
     </p>
-    <img
-      src="./rekryteringsforetag_images/resume-header-7065112_640.png"
-      class="img-fluid mb-2"
-      alt=""
-    />
+
     <h2>Denna sida är tänkt att underlätta ditt jobbsökande</h2>
     <p>
       I Sverige finns många rekryteringsföretag, stora som små, där de försöker
