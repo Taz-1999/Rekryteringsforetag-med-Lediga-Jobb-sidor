@@ -74,7 +74,11 @@ MINA SCRIPTS
         {
           name: "Clockwork",
           url: "https://clockworkpeople.se/",
-        }, 
+        },
+        {
+          name: "Consulting IT",
+          url: "https://jobb.consultingit.se/jobs",
+        },
         {
           name: "D-Source",
           url: "https://karriar.d-source.se/#jobs",
@@ -86,7 +90,7 @@ MINA SCRIPTS
         {
           name: "E-Commerce Recruit",
           url: "https://www.ecommercerecruit.se/lediga-jobb/?utm_source=rule&utm_medium=email",
-        }, 
+        },
         {
           name: "Epico",
           url: "https://jobs.epico.se/jobs?location_id=8248",
@@ -257,7 +261,8 @@ MINA SCRIPTS
       let Set12 = CreateSet(Rekryteringssiter, 33, 36);
       let Set13 = CreateSet(Rekryteringssiter, 36, 39);
       let Set14 = CreateSet(Rekryteringssiter, 39, 42);
-      let Set15 = CreateSet(Rekryteringssiter, 42, 45); // <-- OBS! 46=ny knapp.
+      let Set15 = CreateSet(Rekryteringssiter, 42, 45);
+      let Set16 = CreateSet(Rekryteringssiter, 45, 46); // <-- OBS! 49=ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -274,7 +279,8 @@ MINA SCRIPTS
       let Set12Names = CreateSetNames(Rekryteringssiter, 33, 36);
       let Set13Names = CreateSetNames(Rekryteringssiter, 36, 39);
       let Set14Names = CreateSetNames(Rekryteringssiter, 39, 42);
-      let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45); // <-- OBS! 46=ny knapp.
+      let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45);
+      let Set16Names = CreateSetNames(Rekryteringssiter, 45, 46); // <-- OBS! 49=ny knapp.
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -307,6 +313,7 @@ MINA SCRIPTS
         document.getElementById("Button13").innerHTML = Set13Names;
         document.getElementById("Button14").innerHTML = Set14Names;
         document.getElementById("Button15").innerHTML = Set15Names;
+        document.getElementById("Button16").innerHTML = Set16Names;
 
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
@@ -613,6 +620,18 @@ BODY START
         name=""
       ></button>
     </p>
+  
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button16"
+        onclick="OpenSet(Set16)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
     <h2>Om bara en flik öppnas, tillåt popup</h2>
     <p>
       Din webbläsare blockerar normalt popup-fönster och visar detta med en
