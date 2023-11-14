@@ -49,12 +49,12 @@ MINA SCRIPTS
           url: "https://www.academicwork.se/lediga-jobb?i=0&b=437e4063-6732-45ff-bcc2-c54422a87f45&b=c97b36cd-0e56-4def-b957-6dd45dd8a7e7&b=eb7f79ab-d716-41f5-9f44-14a2ac5828b3&b=67d87614-2f75-45ba-a772-1650273daf27&l=ChIJywtkGTF2X0YRZnedZ9MnDag",
         },
         {
-          name: "Addilon",
-          url: "https://www.addilon.se/jobb-karriar/lediga-tjanster/",
-        },
-        {
           name: "Adecco",
           url: "https://www.adecco.se/lediga-jobb/inom-stockholms-l%C3%A4n/",
+        },
+        {
+          name: "Addilon",
+          url: "https://www.addilon.se/jobb-karriar/lediga-tjanster/",
         },
         { name: "Ants", url: "https://jobb.ants.se/jobs?location=Stockholm" },
         { name: "Bemannia", url: "https://career.bemannia.se/#section-jobs" },
@@ -96,6 +96,10 @@ MINA SCRIPTS
         {
           name: "Epico",
           url: "https://jobs.epico.se/jobs?location_id=8248",
+        },
+        {
+          name: "Experis",
+          url: "https://www.experis.se/sv/sok?page=1&latitude=59.4069048&longitude=18.8230665&place=Stockholms+l%C3%A4n,+Sverige&sortOrder=Datum&sf=sortOrder&ids={sortOrder:[fb5bf549724c4bdfade94357e5e94d9b]}",
         },
         {
           name: "Facebook-Jobb STHLM",
@@ -267,8 +271,9 @@ MINA SCRIPTS
       let Set12 = CreateSet(Rekryteringssiter, 33, 36);
       let Set13 = CreateSet(Rekryteringssiter, 36, 39);
       let Set14 = CreateSet(Rekryteringssiter, 39, 42);
-      let Set15 = CreateSet(Rekryteringssiter, 42, 45); // +3
-      let Set16 = CreateSet(Rekryteringssiter, 45, 48); // <-- OBS! 49=ny knapp.
+      let Set15 = CreateSet(Rekryteringssiter, 42, 45);
+      let Set16 = CreateSet(Rekryteringssiter, 45, 48); // +3
+      let Set17 = CreateSet(Rekryteringssiter, 48, 49); // <-- OBS! 51 max. 52=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -285,8 +290,9 @@ MINA SCRIPTS
       let Set12Names = CreateSetNames(Rekryteringssiter, 33, 36);
       let Set13Names = CreateSetNames(Rekryteringssiter, 36, 39);
       let Set14Names = CreateSetNames(Rekryteringssiter, 39, 42); 
-      let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45); // +3
-      let Set16Names = CreateSetNames(Rekryteringssiter, 45, 48); // <-- OBS! 49=ny knapp.
+      let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45); 
+      let Set16Names = CreateSetNames(Rekryteringssiter, 45, 48); // +3
+      let Set17Names = CreateSetNames(Rekryteringssiter, 48, 49); // <-- OBS! 51 max. 52=>ny knapp.
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -320,6 +326,7 @@ MINA SCRIPTS
         document.getElementById("Button14").innerHTML = Set14Names;
         document.getElementById("Button15").innerHTML = Set15Names;
         document.getElementById("Button16").innerHTML = Set16Names;
+        document.getElementById("Button17").innerHTML = Set17Names;
 
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
@@ -638,6 +645,17 @@ BODY START
       ></button>
     </p>
 
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button17"
+        onclick="OpenSet(Set17)"
+        value=""
+        name=""
+      ></button>
+    </p>
+    
     <h2>Om bara en flik öppnas, tillåt popup</h2>
     <p>
       Din webbläsare blockerar normalt popup-fönster och visar detta med en
