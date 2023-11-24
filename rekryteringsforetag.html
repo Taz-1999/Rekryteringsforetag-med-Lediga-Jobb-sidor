@@ -60,7 +60,7 @@ MINA SCRIPTS
         { name: "Bemannia", url: "https://career.bemannia.se/#section-jobs" },
         { name: "Bohmans", url: "https://www.bohmans.com/aktuellauppdrag/" },
         { name: "BombayWorks", url: "https://careers.bombayworks.com/jobs" },
-        
+
         {
           name: "Bravura",
           url: "https://jobb.bravura.se/lediga-jobb/?categories=558201,558301,558801&cities=541401",
@@ -76,6 +76,10 @@ MINA SCRIPTS
         {
           name: "Clockwork",
           url: "https://clockworkpeople.se/",
+        },
+        {
+          name: "Combined-X (9 ftg)",
+          url: "https://karriar.combinedx.com/",
         },
         {
           name: "Consulting IT",
@@ -213,6 +217,8 @@ MINA SCRIPTS
           name: "WiseIT",
           url: "https://www.wiseit.se/lediga-tjanster/?sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_location=796&sleek_filter_tax_sleekteamtailor_job_type=&sleek_filter_search=",
         },
+        { name: "WRKNEST", url: "https://careers.wrknest.se/jobs?location=Stockholm&query=" },
+
       ];
 
       // FUNKTIONER
@@ -280,8 +286,9 @@ MINA SCRIPTS
       let Set13 = CreateSet(Rekryteringssiter, 36, 39);
       let Set14 = CreateSet(Rekryteringssiter, 39, 42);
       let Set15 = CreateSet(Rekryteringssiter, 42, 45);
-      let Set16 = CreateSet(Rekryteringssiter, 45, 48); // +3
-      let Set17 = CreateSet(Rekryteringssiter, 48, 51); // <-- OBS! 51 max. 52=>ny knapp.
+      let Set16 = CreateSet(Rekryteringssiter, 45, 48);
+      let Set17 = CreateSet(Rekryteringssiter, 48, 51); // +3
+      let Set18 = CreateSet(Rekryteringssiter, 51, 53); // <-- OBS! 54 max. 54=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -297,10 +304,14 @@ MINA SCRIPTS
       let Set11Names = CreateSetNames(Rekryteringssiter, 30, 33);
       let Set12Names = CreateSetNames(Rekryteringssiter, 33, 36);
       let Set13Names = CreateSetNames(Rekryteringssiter, 36, 39);
-      let Set14Names = CreateSetNames(Rekryteringssiter, 39, 42); 
-      let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45); 
-      let Set16Names = CreateSetNames(Rekryteringssiter, 45, 48); // +3
-      let Set17Names = CreateSetNames(Rekryteringssiter, 48, 51); // <-- OBS! 51 max. 52=>ny knapp.
+      let Set14Names = CreateSetNames(Rekryteringssiter, 39, 42);
+      let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45);
+      let Set16Names = CreateSetNames(Rekryteringssiter, 45, 48);
+      let Set17Names = CreateSetNames(Rekryteringssiter, 48, 51); // +3knapp.
+      let Set18Names = CreateSetNames(Rekryteringssiter, 51, 53); // <-- OBS! 54 max. 54=>ny knapp.
+
+      // Glöm inte ändra datumet Senastuppdaterad
+      let SenastUppdaterad = "Senast uppdaterad: 2023-11-24"
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -335,11 +346,14 @@ MINA SCRIPTS
         document.getElementById("Button15").innerHTML = Set15Names;
         document.getElementById("Button16").innerHTML = Set16Names;
         document.getElementById("Button17").innerHTML = Set17Names;
+        document.getElementById("Button18").innerHTML = Set18Names;
 
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
         // Skriv in hela länklistan i en text på sidan
         document.getElementById("listan").innerHTML = AllLinksList;
+        // Skriv in datum senast uppdaterad i en text på sidan
+        document.getElementById("SenastUppdaterad").innerHTML = SenastUppdaterad;
       }
     </script>
 
@@ -641,7 +655,7 @@ BODY START
         name=""
       ></button>
     </p>
-  
+
     <p>
       <button
         class="btn btn-primary btn-lg"
@@ -663,7 +677,18 @@ BODY START
         name=""
       ></button>
     </p>
-    
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button18"
+        onclick="OpenSet(Set18)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
     <h2>Om bara en flik öppnas, tillåt popup</h2>
     <p>
       Din webbläsare blockerar normalt popup-fönster och visar detta med en
@@ -680,11 +705,14 @@ BODY START
         alt=""
       />
     </p>
-    <p>I Edge måste man tillåta popups i inställningarna. Ser ut så här: </p>
-    <p></p><img
-    src="./rekryteringsforetag_images/Allow-popup-setting-edge.png"
-    alt="" width="75%"
-  /></p>
+    <p>I Edge måste man tillåta popups i inställningarna. Ser ut så här:</p>
+    <p>
+      <img
+        src="./rekryteringsforetag_images/Allow-popup-setting-edge.png"
+        alt=""
+        width="75%"
+      />
+    </p>
     <h2>Denna sida är tänkt att underlätta ditt jobbsökande</h2>
     <p>
       I Sverige finns många rekryteringsföretag, stora som små, där de försöker
@@ -827,7 +855,7 @@ BODY START
         >https://alltommig.nu/rekr</a
       >
     </p>
-    <p>Senast uppdaterad: 2023-10-15</p>
+    <p id="SenastUppdaterad">XXX</p>
   </body>
 
   <!-- INFO BOOTSTRAP ICONS
