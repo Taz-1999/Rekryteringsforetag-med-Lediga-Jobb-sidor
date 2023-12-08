@@ -57,7 +57,7 @@ MINA SCRIPTS
           url: "https://www.addilon.se/jobb-karriar/lediga-tjanster/",
         },
         { name: "Ants", url: "https://jobb.ants.se/jobs?location=Stockholm" },
-        { name: "Bemannia", url: "https://career.bemannia.se/#section-jobs" },
+        { name: "Bemannia", url: "https://career.bemannia.se/jobs" },
         { name: "Bohmans", url: "https://www.bohmans.com/aktuellauppdrag/" },
         { name: "BombayWorks", url: "https://careers.bombayworks.com/jobs" },
 
@@ -87,7 +87,7 @@ MINA SCRIPTS
         },
         {
           name: "D-Source",
-          url: "https://karriar.d-source.se/#jobs",
+          url: "https://karriar.d-source.se/jobs",
         },
         {
           name: "Dreamwork",
@@ -126,6 +126,10 @@ MINA SCRIPTS
           url: "https://www.inhouse.se/jobb/?filter=recman_location%3Dstockholms-lan",
         },
         {
+          name: "ITJobb.se",
+          url: "https://www.inhouse.se/jobb/?filter=recman_location%3Dstockholms-lan",
+        },
+        {
           name: "Jappa (gig)",
           url: "https://www.jappa.jobs/jobb",
         },
@@ -147,7 +151,7 @@ MINA SCRIPTS
         },
         {
           name: "Klara Consulting",
-          url: "https://karriar.klaraconsulting.se/#jobs",
+          url: "https://karriar.klaraconsulting.se/jobs",
         },
         {
           name: "ManPower",
@@ -155,7 +159,7 @@ MINA SCRIPTS
         },
         {
           name: "Mild",
-          url: "https://jobb.mild.se/#jobs",
+          url: "https://jobb.mild.se/jobs",
         },
         {
           name: "Miljonbemanning",
@@ -193,6 +197,10 @@ MINA SCRIPTS
         {
           name: "ROI Rekrytering",
           url: "https://roirekrytering.se/lediga-jobb/",
+        },
+        {
+          name: "Rubino",
+          url: "https://www.rubino.se/sok-jobb/",
         },
         {
           name: "Submit",
@@ -287,8 +295,9 @@ MINA SCRIPTS
       let Set14 = CreateSet(Rekryteringssiter, 39, 42);
       let Set15 = CreateSet(Rekryteringssiter, 42, 45);
       let Set16 = CreateSet(Rekryteringssiter, 45, 48);
-      let Set17 = CreateSet(Rekryteringssiter, 48, 51); // +3
-      let Set18 = CreateSet(Rekryteringssiter, 51, 53); // <-- OBS! 54 max. 54=>ny knapp.
+      let Set17 = CreateSet(Rekryteringssiter, 48, 51); 
+      let Set18 = CreateSet(Rekryteringssiter, 51, 54); // +3
+      let Set19 = CreateSet(Rekryteringssiter, 54, 55); // <-- OBS! 57 max. 58=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -307,11 +316,12 @@ MINA SCRIPTS
       let Set14Names = CreateSetNames(Rekryteringssiter, 39, 42);
       let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45);
       let Set16Names = CreateSetNames(Rekryteringssiter, 45, 48);
-      let Set17Names = CreateSetNames(Rekryteringssiter, 48, 51); // +3knapp.
-      let Set18Names = CreateSetNames(Rekryteringssiter, 51, 53); // <-- OBS! 54 max. 54=>ny knapp.
+      let Set17Names = CreateSetNames(Rekryteringssiter, 48, 51); 
+      let Set18Names = CreateSetNames(Rekryteringssiter, 51, 54); // +3 knapp.
+      let Set19Names = CreateSetNames(Rekryteringssiter, 54, 55); // <-- OBS! 57 max. 58=>ny knapp.
 
       // Glöm inte ändra datumet Senastuppdaterad
-      let SenastUppdaterad = "Senast uppdaterad: 2023-11-24"
+      let SenastUppdaterad = "Senast uppdaterad: 2023-12-01"
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -347,6 +357,7 @@ MINA SCRIPTS
         document.getElementById("Button16").innerHTML = Set16Names;
         document.getElementById("Button17").innerHTML = Set17Names;
         document.getElementById("Button18").innerHTML = Set18Names;
+        document.getElementById("Button19").innerHTML = Set19Names;
 
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
@@ -684,6 +695,17 @@ BODY START
         type="button"
         id="Button18"
         onclick="OpenSet(Set18)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button19"
+        onclick="OpenSet(Set19)"
         value=""
         name=""
       ></button>
