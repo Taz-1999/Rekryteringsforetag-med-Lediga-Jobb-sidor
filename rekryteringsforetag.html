@@ -75,7 +75,7 @@ MINA SCRIPTS
         },
         {
           name: "Clockwork",
-          url: "https://clockworkpeople.se/",
+          url: "https://clockworkpeople.se/for-jobbsokande/#",
         },
         {
           name: "Combined-X (9 ftg)",
@@ -220,13 +220,19 @@ MINA SCRIPTS
           name: "Uniflex bemanning",
           url: "https://www.uniflex.se/jobb/?q=stockholm&orderby=post_date",
         },
+        {
+          name: "Veterankraft",
+          url: "https://veterankraft.se/lediga-jobb/?filter=intelliplan_job_locations%3Dstockholm",
+        },
         { name: "Wiser (konsultportal)", url: "https://wiser.se/" },
         {
           name: "WiseIT",
           url: "https://www.wiseit.se/lediga-tjanster/?sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_location=796&sleek_filter_tax_sleekteamtailor_job_type=&sleek_filter_search=",
         },
-        { name: "WRKNEST", url: "https://careers.wrknest.se/jobs?location=Stockholm&query=" },
-
+        {
+          name: "WRKNEST",
+          url: "https://careers.wrknest.se/jobs?location=Stockholm&query=",
+        },
       ];
 
       // FUNKTIONER
@@ -295,9 +301,9 @@ MINA SCRIPTS
       let Set14 = CreateSet(Rekryteringssiter, 39, 42);
       let Set15 = CreateSet(Rekryteringssiter, 42, 45);
       let Set16 = CreateSet(Rekryteringssiter, 45, 48);
-      let Set17 = CreateSet(Rekryteringssiter, 48, 51); 
+      let Set17 = CreateSet(Rekryteringssiter, 48, 51);
       let Set18 = CreateSet(Rekryteringssiter, 51, 54); // +3
-      let Set19 = CreateSet(Rekryteringssiter, 54, 55); // <-- OBS! 57 max. 58=>ny knapp.
+      let Set19 = CreateSet(Rekryteringssiter, 54, 56); // <-- OBS! 57 max. 58=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -316,12 +322,12 @@ MINA SCRIPTS
       let Set14Names = CreateSetNames(Rekryteringssiter, 39, 42);
       let Set15Names = CreateSetNames(Rekryteringssiter, 42, 45);
       let Set16Names = CreateSetNames(Rekryteringssiter, 45, 48);
-      let Set17Names = CreateSetNames(Rekryteringssiter, 48, 51); 
+      let Set17Names = CreateSetNames(Rekryteringssiter, 48, 51);
       let Set18Names = CreateSetNames(Rekryteringssiter, 51, 54); // +3 knapp.
-      let Set19Names = CreateSetNames(Rekryteringssiter, 54, 55); // <-- OBS! 57 max. 58=>ny knapp.
+      let Set19Names = CreateSetNames(Rekryteringssiter, 54, 56); // <-- OBS! 57 max. 58=>ny knapp.
 
       // Glöm inte ändra datumet Senastuppdaterad
-      let SenastUppdaterad = "Senast uppdaterad: 2023-12-01"
+      let SenastUppdaterad = "Senast uppdaterad: 2023-12-21";
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -364,7 +370,8 @@ MINA SCRIPTS
         // Skriv in hela länklistan i en text på sidan
         document.getElementById("listan").innerHTML = AllLinksList;
         // Skriv in datum senast uppdaterad i en text på sidan
-        document.getElementById("SenastUppdaterad").innerHTML = SenastUppdaterad;
+        document.getElementById("SenastUppdaterad").innerHTML =
+          SenastUppdaterad;
       }
     </script>
 
