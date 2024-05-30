@@ -213,10 +213,6 @@ MINA SCRIPTS
           url: "https://rekryteringshuset.se/lediga-tjanster/",
         },
         {
-          name: "ROI Rekrytering",
-          url: "https://roirekrytering.se/lediga-jobb/",
-        },
-        {
           name: "Rubino",
           url: "https://www.rubino.se/sok-jobb/",
         },
@@ -327,7 +323,7 @@ MINA SCRIPTS
       let Set18 = CreateSet(Rekryteringssiter, 51, 54);
       let Set19 = CreateSet(Rekryteringssiter, 54, 57); 
       let Set20 = CreateSet(Rekryteringssiter, 57, 60); // +3
-      let Set21 = CreateSet(Rekryteringssiter, 60, 63); // <-- OBS! 63 max. 64=>ny knapp.
+      let Set21 = CreateSet(Rekryteringssiter, 60, 62); // <-- OBS! 63 max. 64=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -350,10 +346,10 @@ MINA SCRIPTS
       let Set18Names = CreateSetNames(Rekryteringssiter, 51, 54);
       let Set19Names = CreateSetNames(Rekryteringssiter, 54, 57);
       let Set20Names = CreateSetNames(Rekryteringssiter, 57, 60); // +3
-      let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); // <-- OBS! 63 max. 64=>ny knapp.
+      let Set21Names = CreateSetNames(Rekryteringssiter, 60, 62); // <-- OBS! 63 max. 64=>ny knapp.
 
       // Glöm inte ändra datumet Senastuppdaterad
-      let SenastUppdaterad = "Senast uppdaterad: 2024-04-26";
+      let SenastUppdaterad = "Senast uppdaterad: 2024-05-30";
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -390,7 +386,9 @@ MINA SCRIPTS
         document.getElementById("Button17").innerHTML = "17. " + Set17Names;
         document.getElementById("Button18").innerHTML = "18. " + Set18Names;
         document.getElementById("Button19").innerHTML = "19. " + Set19Names;
+        // 57-60:
         document.getElementById("Button20").innerHTML = "20. " + Set20Names;
+        // 60-62:
         document.getElementById("Button21").innerHTML = "21. " + Set21Names;
 
         // Skriv in antalet rekr företag i en text på sidan.
