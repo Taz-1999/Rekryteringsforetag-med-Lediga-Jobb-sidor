@@ -46,9 +46,9 @@ MINA SCRIPTS
       let Rekryteringssiter = [
         {
           name: "AcademicWork",
-          url: "https://www.academicwork.se/lediga-jobb?i=0&b=437e4063-6732-45ff-bcc2-c54422a87f45&b=c97b36cd-0e56-4def-b957-6dd45dd8a7e7&b=eb7f79ab-d716-41f5-9f44-14a2ac5828b3&b=67d87614-2f75-45ba-a772-1650273daf27&l=ChIJywtkGTF2X0YRZnedZ9MnDag",
+          url: "https://www.academicwork.se/lediga-jobb?i=0&b=437e4063-6732-45ff-bcc2-c54422a87f45&b=c97b36cd-0e56-4def-b957-6dd45dd8a7e7&b=eb7f79ab-d716-41f5-9f44-14a2ac5828b3&b=67d87614-2f75-45ba-a772-1650273daf27&l=whosonfirst%3Alocality%3A101752307",
         },
-        { name: "Acely", url: "https://acely.se/lediga-uppdrag/"},
+        { name: "Acely", url: "https://acely.se/lediga-uppdrag/" },
         {
           name: "Adecco",
           url: "https://www.adecco.se/lediga-jobb/inom-stockholms-l%C3%A4n/",
@@ -58,10 +58,16 @@ MINA SCRIPTS
           url: "https://www.addilon.se/jobb-karriar/lediga-tjanster/",
         },
         { name: "Ants", url: "https://jobb.ants.se/jobs?location=Stockholm" },
-        { name: "Bemannia", url: "https://career.bemannia.se/jobs" },
+        {
+          name: "Bemannia",
+          url: "https://career.bemannia.se/jobs?location=Stockholm&split_view=false",
+        },
+        {
+          name: "Bemannix",
+          url: "https://careers.bemannix.se/#jobs",
+        },
         { name: "Bohmans", url: "https://www.bohmans.com/aktuellauppdrag/" },
         { name: "BombayWorks", url: "https://careers.bombayworks.com/jobs" },
-
         {
           name: "Bravura",
           url: "https://jobb.bravura.se/lediga-jobb/?categories=558201,558301,558801&cities=541401",
@@ -120,7 +126,10 @@ MINA SCRIPTS
         },
         { name: "Fasticon", url: "https://fasticon.se/lediga-jobb/" },
         { name: "Filmjobb", url: "https://filmjobb.se/" },
-        { name: "Framtiden", url: "https://framtiden.zohorecruit.eu/jobs/Careers" },
+        {
+          name: "Framtiden",
+          url: "https://framtiden.zohorecruit.eu/jobs/Careers",
+        },
         { name: "Gigstep", url: "https://jobs.gigstep.se/locations/stockholm" },
         { name: "Hero", url: "https://career.hero.se/jobs?location=Stockholm" },
         {
@@ -321,9 +330,9 @@ MINA SCRIPTS
       let Set16 = CreateSet(Rekryteringssiter, 45, 48);
       let Set17 = CreateSet(Rekryteringssiter, 48, 51);
       let Set18 = CreateSet(Rekryteringssiter, 51, 54);
-      let Set19 = CreateSet(Rekryteringssiter, 54, 57); 
+      let Set19 = CreateSet(Rekryteringssiter, 54, 57);
       let Set20 = CreateSet(Rekryteringssiter, 57, 60); // +3
-      let Set21 = CreateSet(Rekryteringssiter, 60, 62); // <-- OBS! 63 max. 64=>ny knapp.
+      let Set21 = CreateSet(Rekryteringssiter, 60, 63); // <-- OBS! 63 max. 64=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -346,10 +355,10 @@ MINA SCRIPTS
       let Set18Names = CreateSetNames(Rekryteringssiter, 51, 54);
       let Set19Names = CreateSetNames(Rekryteringssiter, 54, 57);
       let Set20Names = CreateSetNames(Rekryteringssiter, 57, 60); // +3
-      let Set21Names = CreateSetNames(Rekryteringssiter, 60, 62); // <-- OBS! 63 max. 64=>ny knapp.
+      let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); // <-- OBS! 63 max. 64=>ny knapp.
 
       // Glöm inte ändra datumet Senastuppdaterad
-      let SenastUppdaterad = "Senast uppdaterad: 2024-07-05";
+      let SenastUppdaterad = "Senast uppdaterad: 2024-09-13";
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
