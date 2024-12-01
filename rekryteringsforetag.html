@@ -361,7 +361,7 @@ MINA SCRIPTS
       let Set19Names = CreateSetNames(Rekryteringssiter, 54, 57);
       let Set20Names = CreateSetNames(Rekryteringssiter, 57, 60);
       let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); // +3
-      let Set22Names = CreateSetNames(Rekryteringssiter, 60, 63); // <-- OBS! 66 max. 67=>ny knapp.
+      let Set22Names = CreateSetNames(Rekryteringssiter, 63, 64); // <-- OBS! 66 max. 67=>ny knapp, även nere i koden.
 
       // Glöm inte ändra datumet Senastuppdaterad
       let SenastUppdaterad = "Senast uppdaterad: 2024-11-08";
@@ -776,6 +776,17 @@ BODY START
         type="button"
         id="Button21"
         onclick="OpenSet(Set21)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button22"
+        onclick="OpenSet(Set22)"
         value=""
         name=""
       ></button>
