@@ -56,6 +56,10 @@ MINA SCRIPTS
         {
           name: "Addilon",
           url: "https://www.addilon.se/jobb-karriar/lediga-tjanster/",
+        }, 
+        {
+          name: "Advania",
+          url: "https://jobb.advania.se/jobs?location=Stockholm+Liljeholmen&query=",
         },
         { name: "Ants", url: "https://jobb.ants.se/jobs?location=Stockholm" },
         {
@@ -86,7 +90,7 @@ MINA SCRIPTS
         },
         {
           name: "Centric",
-          url: "https://careers.centric.eu/se/lediga-jobb/?page=2&provinces=stockholm_1&json=0",
+          url: "https://careers.centric.eu/se/lediga-jobb/?page=1&provinces=stockholm_1&json=0",
         },
         {
           name: "Clockwork",
@@ -128,7 +132,7 @@ MINA SCRIPTS
           name: "Facebook-Jobb STHLM",
           url: "https://www.facebook.com/groups/jobbistockholm",
         },
-        { name: "Fasticon", url: "https://fasticon.se/lediga-jobb/" },
+        { name: "Fasticon", url: "https://fasticon.se/lediga-jobb/?p=1&filters=Stockholms%20l%C3%A4n" },
         { name: "Filmjobb", url: "https://filmjobb.se/" },
         {
           name: "Framtiden",
@@ -337,7 +341,7 @@ MINA SCRIPTS
       let Set19 = CreateSet(Rekryteringssiter, 54, 57);
       let Set20 = CreateSet(Rekryteringssiter, 57, 60); 
       let Set21 = CreateSet(Rekryteringssiter, 60, 63); // +3
-      let Set22 = CreateSet(Rekryteringssiter, 63, 64); // <-- OBS! 66 max. 67=>ny knapp.
+      let Set22 = CreateSet(Rekryteringssiter, 63, 65); // <-- OBS! 66 max. 67=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -361,10 +365,10 @@ MINA SCRIPTS
       let Set19Names = CreateSetNames(Rekryteringssiter, 54, 57);
       let Set20Names = CreateSetNames(Rekryteringssiter, 57, 60);
       let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); // +3
-      let Set22Names = CreateSetNames(Rekryteringssiter, 63, 64); // <-- OBS! 66 max. 67=>ny knapp, även nere i koden.
+      let Set22Names = CreateSetNames(Rekryteringssiter, 63, 65); // <-- OBS! 66 max. 67=>ny knapp, även nere i koden.
 
       // Glöm inte ändra datumet Senastuppdaterad
-      let SenastUppdaterad = "Senast uppdaterad: 2024-11-08";
+      let SenastUppdaterad = "Senast uppdaterad: 2024-12-06";
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
