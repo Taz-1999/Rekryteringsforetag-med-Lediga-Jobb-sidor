@@ -56,7 +56,7 @@ MINA SCRIPTS
         {
           name: "Addilon",
           url: "https://www.addilon.se/jobb-karriar/lediga-tjanster/",
-        }, 
+        },
         {
           name: "Advania",
           url: "https://jobb.advania.se/jobs?location=Stockholm+Liljeholmen&query=",
@@ -132,7 +132,10 @@ MINA SCRIPTS
           name: "Facebook-Jobb STHLM",
           url: "https://www.facebook.com/groups/jobbistockholm",
         },
-        { name: "Fasticon", url: "https://fasticon.se/lediga-jobb/?p=1&filters=Stockholms%20l%C3%A4n" },
+        {
+          name: "Fasticon",
+          url: "https://fasticon.se/lediga-jobb/?p=1&filters=Stockholms%20l%C3%A4n",
+        },
         { name: "Filmjobb", url: "https://filmjobb.se/" },
         {
           name: "Framtiden",
@@ -270,6 +273,10 @@ MINA SCRIPTS
         },
       ];
 
+      // VÄRDEN
+      let bgcolorforlastclicked = "black";
+      let bgcolorforbuttons = "DodgerBlue";
+
       // FUNKTIONER
       // Skapa ett set för en knapp, detta är en array
       function CreateSet(theList, start, end) {
@@ -312,10 +319,120 @@ MINA SCRIPTS
       }
 
       // Detta är vad som öppnar varje set i varsina flikar.
-      function OpenSet(TheSet) {
+      function OpenSet(TheSet, SetID) {
         TheSet.forEach((urlToOpen) => {
           window.open(urlToOpen.url, "_blank");
         });
+
+        // Spara och skriv dit det nya LastButtonID
+        localStorage.setItem("LastButtonID", SetID);
+        // console.log("LastButton is " + SetID);
+        // Skriv in detta på sidan med denna funktion.
+
+        // Skriv in senast klickad
+        document.getElementById("SenastKlickad").innerHTML =
+          "Senast klickade knapp: " +
+          SetID +
+          " (från webbläsarens datalagring)";
+
+        // Återställ färger och tag bort den gamla pekaren
+        SetButtonNames();
+
+        // Sätt bg-färg och pekaren på knappen som klickats.
+        SetBGColorOnLastClickedButton(SetID);
+      }
+
+      // Sätt bgfärgen på den knapp som klickades.
+      function SetBGColorOnLastClickedButton(SetID) {
+        //
+        if (SetID == 1) {
+          document.getElementById("Button01").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 2) {
+          document.getElementById("Button02").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 3) {
+          document.getElementById("Button03").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 4) {
+          document.getElementById("Button04").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 5) {
+          document.getElementById("Button05").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 6) {
+          document.getElementById("Button06").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 7) {
+          document.getElementById("Button07").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 8) {
+          document.getElementById("Button08").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 9) {
+          document.getElementById("Button09").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 10) {
+          document.getElementById("Button10").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 11) {
+          document.getElementById("Button11").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 12) {
+          document.getElementById("Button12").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 13) {
+          document.getElementById("Button13").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 14) {
+          document.getElementById("Button14").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 15) {
+          document.getElementById("Button15").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 16) {
+          document.getElementById("Button16").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 17) {
+          document.getElementById("Button17").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 18) {
+          document.getElementById("Button18").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 19) {
+          document.getElementById("Button19").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 20) {
+          document.getElementById("Button20").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 21) {
+          document.getElementById("Button21").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
+        if (SetID == 22) {
+          document.getElementById("Button22").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
       }
 
       // VARIABLER
@@ -339,7 +456,7 @@ MINA SCRIPTS
       let Set17 = CreateSet(Rekryteringssiter, 48, 51);
       let Set18 = CreateSet(Rekryteringssiter, 51, 54);
       let Set19 = CreateSet(Rekryteringssiter, 54, 57);
-      let Set20 = CreateSet(Rekryteringssiter, 57, 60); 
+      let Set20 = CreateSet(Rekryteringssiter, 57, 60);
       let Set21 = CreateSet(Rekryteringssiter, 60, 63); // +3
       let Set22 = CreateSet(Rekryteringssiter, 63, 65); // <-- OBS! 66 max. 67=>ny knapp.
 
@@ -417,6 +534,37 @@ MINA SCRIPTS
         // Skriv in datum senast uppdaterad i en text på sidan
         document.getElementById("SenastUppdaterad").innerHTML =
           SenastUppdaterad;
+        document.getElementById("SenastKlickad").innerHTML =
+          "Senast klickade knapp: " +
+          localStorage.getItem("LastButtonID") +
+          " (från webbläsarens datalagring)";
+
+        // Återställ färgen på alla knappar till default
+        let allButtons = document.getElementsByClassName(
+          "btn btn-primary btn-lg"
+        );
+        for (let index = 0; index < allButtons.length; index++) {
+          allButtons[index].style.backgroundColor = bgcolorforbuttons;
+        }
+
+        // Sätt rätt färg på sist klickad knapp, läs vilken från webbläsarens databas
+        SetBGColorOnLastClickedButton(localStorage.getItem("LastButtonID"));
+      }
+
+      // Funktion som nollställer räknaren, tar bort markeringen på senast vald knapp
+      function ResetLastClickedButton() {
+        // Skriv in 0 i databasen
+        localStorage.setItem("LastButtonID", 0);
+        // Skriv in 0 på sidan.
+        document.getElementById("SenastKlickad").innerHTML =
+          "Senast klickade knapp: " +
+          localStorage.getItem("LastButtonID") +
+          " (från webbläsarens datalagring)";
+        // Nollställ alla knappars färger
+        SetButtonNames();
+        // Sätt bg-färg på resetknappen längst ner
+        document.getElementById("ButtonReset").style.backgroundColor =
+          bgcolorforlastclicked;
       }
     </script>
 
@@ -561,12 +709,13 @@ BODY START
       De flesta länkar skall vara förinställda på Stockholm och de områden jag
       söker jobb inom (Administration, IT-support, Frontendutveckling mm).
     </p>
+    <p id="SenastKlickad">XXX</p>
     <p>
       <button
         class="btn btn-primary btn-lg"
         type="button"
         id="Button01"
-        onclick="OpenSet(Set01)"
+        onclick="OpenSet(Set01, 1)"
         value=""
       ></button>
     </p>
@@ -575,7 +724,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button02"
-        onclick="OpenSet(Set02)"
+        onclick="OpenSet(Set02, 2)"
         value=""
       ></button>
     </p>
@@ -584,7 +733,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button03"
-        onclick="OpenSet(Set03)"
+        onclick="OpenSet(Set03, 3)"
         value=""
         name=""
       ></button>
@@ -594,7 +743,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button04"
-        onclick="OpenSet(Set04)"
+        onclick="OpenSet(Set04, 4)"
         value=""
         name=""
       ></button>
@@ -604,7 +753,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button05"
-        onclick="OpenSet(Set05)"
+        onclick="OpenSet(Set05, 5)"
         value=""
         name=""
       ></button>
@@ -614,7 +763,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button06"
-        onclick="OpenSet(Set06)"
+        onclick="OpenSet(Set06, 6)"
         value=""
         name=""
       ></button>
@@ -625,7 +774,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button07"
-        onclick="OpenSet(Set07)"
+        onclick="OpenSet(Set07, 7)"
         value=""
         name=""
       ></button>
@@ -636,7 +785,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button08"
-        onclick="OpenSet(Set08)"
+        onclick="OpenSet(Set08, 8)"
         value=""
         name=""
       ></button>
@@ -647,7 +796,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button09"
-        onclick="OpenSet(Set09)"
+        onclick="OpenSet(Set09, 9)"
         value=""
         name=""
       ></button>
@@ -658,7 +807,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button10"
-        onclick="OpenSet(Set10)"
+        onclick="OpenSet(Set10, 10)"
         value=""
         name=""
       ></button>
@@ -669,7 +818,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button11"
-        onclick="OpenSet(Set11)"
+        onclick="OpenSet(Set11, 11)"
         value=""
         name=""
       ></button>
@@ -680,7 +829,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button12"
-        onclick="OpenSet(Set12)"
+        onclick="OpenSet(Set12, 12)"
         value=""
         name=""
       ></button>
@@ -691,7 +840,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button13"
-        onclick="OpenSet(Set13)"
+        onclick="OpenSet(Set13, 13)"
         value=""
         name=""
       ></button>
@@ -702,7 +851,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button14"
-        onclick="OpenSet(Set14)"
+        onclick="OpenSet(Set14, 14)"
         value=""
         name=""
       ></button>
@@ -713,7 +862,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button15"
-        onclick="OpenSet(Set15)"
+        onclick="OpenSet(Set15, 15)"
         value=""
         name=""
       ></button>
@@ -724,7 +873,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button16"
-        onclick="OpenSet(Set16)"
+        onclick="OpenSet(Set16, 16)"
         value=""
         name=""
       ></button>
@@ -735,7 +884,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button17"
-        onclick="OpenSet(Set17)"
+        onclick="OpenSet(Set17, 17)"
         value=""
         name=""
       ></button>
@@ -746,7 +895,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button18"
-        onclick="OpenSet(Set18)"
+        onclick="OpenSet(Set18, 18)"
         value=""
         name=""
       ></button>
@@ -757,7 +906,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button19"
-        onclick="OpenSet(Set19)"
+        onclick="OpenSet(Set19, 19)"
         value=""
         name=""
       ></button>
@@ -768,7 +917,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button20"
-        onclick="OpenSet(Set20)"
+        onclick="OpenSet(Set20, 20)"
         value=""
         name=""
       ></button>
@@ -779,7 +928,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button21"
-        onclick="OpenSet(Set21)"
+        onclick="OpenSet(Set21, 21)"
         value=""
         name=""
       ></button>
@@ -790,7 +939,7 @@ BODY START
         class="btn btn-primary btn-lg"
         type="button"
         id="Button22"
-        onclick="OpenSet(Set22)"
+        onclick="OpenSet(Set22, 22)"
         value=""
         name=""
       ></button>
@@ -963,6 +1112,18 @@ BODY START
       >
     </p>
     <p id="SenastUppdaterad">XXX</p>
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="ButtonReset"
+        onclick="ResetLastClickedButton()"
+        value=""
+        name=""
+      >
+        Nollställ senast klickad knapp
+      </button>
+    </p>
   </body>
 
   <!-- INFO BOOTSTRAP ICONS
