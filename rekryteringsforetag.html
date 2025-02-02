@@ -141,6 +141,7 @@ MINA SCRIPTS
           name: "Framtiden",
           url: "https://framtiden.zohorecruit.eu/jobs/Careers",
         },
+        { name: "Get Wiser (konsultportal)", url: "https://getwiser.se/" },
         { name: "Gigstep", url: "https://jobs.gigstep.se/locations/stockholm" },
         { name: "Hero", url: "https://career.hero.se/jobs?location=Stockholm" },
         {
@@ -262,7 +263,6 @@ MINA SCRIPTS
           name: "Veterankraft",
           url: "https://veterankraft.se/lediga-jobb/?filter=intelliplan_job_locations%3Dstockholm",
         },
-        { name: "Wiser (konsultportal)", url: "https://wiser.se/" },
         {
           name: "WiseIT",
           url: "https://www.wiseit.se/lediga-tjanster/?sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_category%5B%5D=&sleek_filter_tax_sleekteamtailor_job_location=796&sleek_filter_tax_sleekteamtailor_job_type=&sleek_filter_search=",
@@ -272,8 +272,9 @@ MINA SCRIPTS
           url: "https://careers.wrknest.se/jobs?location=Stockholm&query=",
         },
       ];
-
+      
       // VÄRDEN
+      let SenastUppdaterad = "Senast uppdaterad: 2025-02-02";
       let bgcolorforlastclicked = "black";
       let bgcolorforbuttons = "DodgerBlue";
 
@@ -484,8 +485,6 @@ MINA SCRIPTS
       let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); // +3
       let Set22Names = CreateSetNames(Rekryteringssiter, 63, 65); // <-- OBS! 66 max. 67=>ny knapp, även nere i koden.
 
-      // Glöm inte ändra datumet Senastuppdaterad
-      let SenastUppdaterad = "Senast uppdaterad: 2025-01-29";
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
