@@ -234,6 +234,10 @@ MINA SCRIPTS
           url: "https://rekryteringshuset.se/lediga-tjanster/",
         },
         {
+          name: "Resultat AB",
+          url: "https://resultatab.se/lediga-jobb-ekonomi",
+        },
+        {
           name: "Rubino",
           url: "https://www.rubino.se/sok-jobb/",
         },
@@ -272,9 +276,9 @@ MINA SCRIPTS
           url: "https://careers.wrknest.se/jobs?location=Stockholm&query=",
         },
       ];
-      
+
       // VÄRDEN
-      let SenastUppdaterad = "Senast uppdaterad: 2025-03-04";
+      let SenastUppdaterad = "Senast uppdaterad: 2025-03-14";
       let bgcolorforlastclicked = "black";
       let bgcolorforbuttons = "DodgerBlue";
 
@@ -459,7 +463,7 @@ MINA SCRIPTS
       let Set19 = CreateSet(Rekryteringssiter, 54, 57);
       let Set20 = CreateSet(Rekryteringssiter, 57, 60);
       let Set21 = CreateSet(Rekryteringssiter, 60, 63); // +3
-      let Set22 = CreateSet(Rekryteringssiter, 63, 65); // <-- OBS! 66 max. 67=>ny knapp.
+      let Set22 = CreateSet(Rekryteringssiter, 63, 66); // <-- OBS! 66 max. 67=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -483,8 +487,7 @@ MINA SCRIPTS
       let Set19Names = CreateSetNames(Rekryteringssiter, 54, 57);
       let Set20Names = CreateSetNames(Rekryteringssiter, 57, 60);
       let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); // +3
-      let Set22Names = CreateSetNames(Rekryteringssiter, 63, 65); // <-- OBS! 66 max. 67=>ny knapp, även nere i koden.
-
+      let Set22Names = CreateSetNames(Rekryteringssiter, 63, 66); // <-- OBS! 66 max. 67=>ny knapp, även nere i koden.
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -1014,7 +1017,10 @@ BODY START
     </p>
 
     <h3>Flera?</h3>
-    <p>Denna webbsite innehåller 186 rekryteringsföretag/bemanningsföretag: <a href="https://rekryteringsforetagen.se/">Rekryteringsföretagen</a>.</p>
+    <p>
+      Denna webbsite innehåller 186 rekryteringsföretag/bemanningsföretag:
+      <a href="https://rekryteringsforetagen.se/">Rekryteringsföretagen</a>.
+    </p>
 
     <!-- <h2>
       Att ange kompetenser och utbildningar i profiler fungerar inte alltid
