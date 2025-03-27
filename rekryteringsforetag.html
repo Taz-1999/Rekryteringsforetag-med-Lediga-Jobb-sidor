@@ -45,8 +45,12 @@ MINA SCRIPTS
       // Listan på alla rekryteringssiter i ett array, med varje site som ett objekt.
       let Rekryteringssiter = [
         {
+          name: "2Complete",
+          url: "https://2complete.se/lediga-jobb/?city=stockholm&branch=9",
+        },
+        {
           name: "AcademicWork",
-          url: "https://www.academicwork.se/lediga-jobb?i=0&b=437e4063-6732-45ff-bcc2-c54422a87f45&b=c97b36cd-0e56-4def-b957-6dd45dd8a7e7&b=eb7f79ab-d716-41f5-9f44-14a2ac5828b3&b=67d87614-2f75-45ba-a772-1650273daf27&l=whosonfirst%3Alocality%3A101752307",
+          url: "https://www.academicwork.se/lediga-jobb?l=whosonfirst%3Alocality%3A101752307",
         },
         { name: "Acely", url: "https://acely.se/lediga-uppdrag/" },
         {
@@ -438,6 +442,10 @@ MINA SCRIPTS
           document.getElementById("Button22").style.backgroundColor =
             bgcolorforlastclicked;
         }
+        if (SetID == 23) {
+          document.getElementById("Button23").style.backgroundColor =
+            bgcolorforlastclicked;
+        }
       }
 
       // VARIABLER
@@ -462,8 +470,9 @@ MINA SCRIPTS
       let Set18 = CreateSet(Rekryteringssiter, 51, 54);
       let Set19 = CreateSet(Rekryteringssiter, 54, 57);
       let Set20 = CreateSet(Rekryteringssiter, 57, 60);
-      let Set21 = CreateSet(Rekryteringssiter, 60, 63); // +3
-      let Set22 = CreateSet(Rekryteringssiter, 63, 66); // <-- OBS! 66 max. 67=>ny knapp.
+      let Set21 = CreateSet(Rekryteringssiter, 60, 63); 
+      let Set22 = CreateSet(Rekryteringssiter, 63, 66); // +3
+      let Set23 = CreateSet(Rekryteringssiter, 66, 67); // <-- OBS! 69 max. 69=>ny knapp.
 
       // Skapa knappens namn för varje set.
       let Set01Names = CreateSetNames(Rekryteringssiter, 0, 3);
@@ -486,8 +495,9 @@ MINA SCRIPTS
       let Set18Names = CreateSetNames(Rekryteringssiter, 51, 54);
       let Set19Names = CreateSetNames(Rekryteringssiter, 54, 57);
       let Set20Names = CreateSetNames(Rekryteringssiter, 57, 60);
-      let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); // +3
-      let Set22Names = CreateSetNames(Rekryteringssiter, 63, 66); // <-- OBS! 66 max. 67=>ny knapp, även nere i koden.
+      let Set21Names = CreateSetNames(Rekryteringssiter, 60, 63); 
+      let Set22Names = CreateSetNames(Rekryteringssiter, 63, 66); // +3
+      let Set23Names = CreateSetNames(Rekryteringssiter, 66, 67); // <-- OBS! 69 max. 69=>ny knapp, även nere i HTML koden.
 
       // Skapa komma-separerad lista med alla länkar.
       let AllLinksList = CreateListOfLinks(Rekryteringssiter);
@@ -526,8 +536,9 @@ MINA SCRIPTS
         document.getElementById("Button19").innerHTML = "19. " + Set19Names;
         document.getElementById("Button20").innerHTML = "20. " + Set20Names;
         document.getElementById("Button21").innerHTML = "21. " + Set21Names;
-        // 63-66:
         document.getElementById("Button22").innerHTML = "22. " + Set22Names;
+        // 67-69:
+        document.getElementById("Button23").innerHTML = "23. " + Set23Names;
 
         // Skriv in antalet rekr företag i en text på sidan.
         document.getElementById("antalet").innerHTML = Rekryteringssiter.length;
@@ -943,6 +954,17 @@ BODY START
         type="button"
         id="Button22"
         onclick="OpenSet(Set22, 22)"
+        value=""
+        name=""
+      ></button>
+    </p>
+
+    <p>
+      <button
+        class="btn btn-primary btn-lg"
+        type="button"
+        id="Button23"
+        onclick="OpenSet(Set23, 23)"
         value=""
         name=""
       ></button>
